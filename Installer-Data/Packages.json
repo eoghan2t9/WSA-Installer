@@ -41,7 +41,7 @@
   "ToolsPackages": [
     {
       "PackageParts": [
-        "https://github.com/mastercodeon31415/WSA-Installer/raw/refs/heads/main/Installer-Data/Tools/Aow-Tools.zip"
+        "https://github.com/mastercodeon31415/WSA-Installer/raw/refs/heads/main/Installer-Data/Tools/Additional-Tools.zip"
       ],
       "PackageName": "Aow Tools",
       "FilePaths": []
