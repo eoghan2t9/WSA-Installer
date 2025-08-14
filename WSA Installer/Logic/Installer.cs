@@ -138,10 +138,9 @@ namespace WSA_Installer.Logic
 				string extractionDir = "";
 				switch (pkg.PackageName)
 				{
-					case "Stock WSA":
+					case "Stock WSA + GApps":
 					{
 						extractionDir = this.InstallLocation;
-
 						break;
 					}
 					case "Default WSA User Data Pack":
@@ -149,12 +148,6 @@ namespace WSA_Installer.Logic
 						//continue;
 						extractionDir = $"C:\\Users\\{Environment.UserName}\\AppData\\Local\\Packages\\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe";
 
-						break;
-					}
-					case "GApps Integration":
-					{
-						continue;
-						extractionDir = this.InstallLocation;
 						break;
 					}
 					case "Aow Tools":

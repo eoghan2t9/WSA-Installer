@@ -300,11 +300,6 @@ namespace WSA_Installer
 		{
 			if (this.currentPage != null)
 			{
-
-			}
-
-			if (this.currentPage != null)
-			{
 				this.Controls.Remove(this.currentPage);
 			}
 

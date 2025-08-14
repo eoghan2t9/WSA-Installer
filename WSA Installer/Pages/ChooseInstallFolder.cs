@@ -99,7 +99,8 @@ namespace WSA_Installer.Pages
                 //{
                 //    fbd.RootFolder = Environment.SpecialFolder.ProgramFilesX86;
                 //}
-                fbd.RootFolder = Environment.SpecialFolder.MyComputer;
+
+                fbd.RootFolder = Environment.SpecialFolder.ProgramFiles;
 
                 fbd.Description = "Select the folder to install WSA in:";
                 DialogResult result = fbd.ShowDialog();
