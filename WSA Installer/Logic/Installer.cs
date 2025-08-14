@@ -181,6 +181,7 @@ namespace WSA_Installer.Logic
 					Dictionary<string, string> packageToAppNames = new Dictionary<string, string>();
 					packageToAppNames.Add("com.android.settings", "Android Settings");
 					packageToAppNames.Add("app.revanced.android.gms", "MicroG Settings");
+					packageToAppNames.Add("com.android.vending", "Play Store");
 					packageToAppNames.Add("app.rvx.android.apps.youtube.music", "RVX Music");
 					packageToAppNames.Add("app.rvx.android.youtube", "RVX");
 					packageToAppNames.Add("nextapp.fx", "FX File Explorer");
@@ -191,6 +192,7 @@ namespace WSA_Installer.Logic
 						string appPackageName = Path.GetFileNameWithoutExtension(iconFile);
 
 						if (appPackageName == "com.amazon.venezia") continue;
+						if (appPackageName == "com.google.android.gms") continue;
 
 						string appDisplayName = "";
 
