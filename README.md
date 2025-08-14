@@ -12,6 +12,10 @@ Use a download manager like Xtreme Download Manager to get better download speed
 Once all the zip parts have been downloaded, put all the files in a folder called Temp and put that folder in the same directory that the WSA Setup.exe file is located. 
 Once it detects that the temp folder is present, and all the needed files are in it, it will skip downloading of the files and go straight to installing. 
 
+PLEASE let me know if it works for you, or if you experence any bugs/issues. Feedback is crucial for development of this app and improving things for the installation process!
+My DMs are open on discord if you need any help.
+Add me at Hatersgonnahate314 and DM me if u have questions, bug/issues, or just wanna let me know it worked for you!
+
 ## Bonus Feature
 The installer will add shortcuts to a folder on your desktop called WSA Apps to all the preinstalled apps in WSA!
 
