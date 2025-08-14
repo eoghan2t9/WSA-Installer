@@ -4,7 +4,7 @@
 
 ## Notes
 KNOWN ISSUE:
-- The installer will dump the wsa install to the root of C drive instead of the selected installation directory. I am currently working on a fix, stay tuned!
+- WSA wont work after being installed on some win11 builds im finding. 
 
 When installing with this installer, there can be situations where the installer will finish and tell you that you need to reboot to finish the installation. 
 In this case, after a reboot the installer will launch itself upon login and automatically finish the isntallation. 
