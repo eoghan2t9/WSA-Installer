@@ -24,10 +24,7 @@ namespace WSA_Installer.Pages
             this.Tag = "ChooseInstallFolder";
             this.NoBanner = false;
 
-            if (Environment.Is64BitOperatingSystem == true)
-            {
-                this.destinationBox.Text = @"C:\Program Files\WSA";
-            }
+            this.destinationBox.Text = @"C:\Program Files\WSA";
 
             updateSpaceInfos();
         }
@@ -116,9 +113,16 @@ namespace WSA_Installer.Pages
 
         private void destinationBox_TextChanged(object sender, EventArgs e)
         {
-            this.InstallLocation = this.destinationBox.Text;
-            Form1.Instance.Installer.InstallLocation = this.InstallLocation;
-        }
+            if (this.destinationBox.Text == @"C:\")
+            {
+                DarkModeMessageBox.Show(Form1.Instance, "Can't install to the root of C drive! (C:\\)\nPlease select a proper installation directory", "WSA Setup", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.InstallLocation = this.destinationBox.Text;
+                Form1.Instance.Installer.InstallLocation = this.InstallLocation;
+            }
+		}
 
         private void uninstallerTesterBox_CheckedChanged(object sender, EventArgs e)
         {

@@ -341,8 +341,9 @@ namespace WSA_Installer.Logic
 				installerState.InstallationDirectory = this.InstallLocation;
 				await PostRestartInstall(installerState);
 
-				string assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-				Directory.Delete(assemblyDirectory + @"\Temp", true);
+				// This deletes the cached files!!!
+				//string assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+				//Directory.Delete(assemblyDirectory + @"\Temp", true);
 			}
 
 			finishEvent();

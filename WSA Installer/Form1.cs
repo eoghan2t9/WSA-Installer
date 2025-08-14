@@ -75,7 +75,7 @@ namespace WSA_Installer
 
 			bannerBox = new Banner();
 			bannerBox.Visible = true;
-			
+
 
 			pages = new Control[]
 			{
@@ -83,8 +83,8 @@ namespace WSA_Installer
 				new ChooseInstallFolder(bannerBox),
 				new ChooseOptions(bannerBox),
 				new InstallingPage(bannerBox),
-				new UninstallerTesterPage(bannerBox),
-				new ComfirmUninstall(bannerBox),
+				//new UninstallerTesterPage(bannerBox),
+				//new ComfirmUninstall(bannerBox),
 				new SetupFinishedPage()
 			};
 
@@ -218,8 +218,91 @@ namespace WSA_Installer
 			this.currentPage.Location = new Point(12, 12);
 		}
 
+		private async void nextBtn_Click(object sender, EventArgs e)
+		{
+			if (currentPage.Tag == (object)"InstallerPage")
+			{
+				if (InstallFinishingAfterReboot)
+				{
+					pageIdx = pages.Length - 1;
+					bannerBox.Visible = false;
+					await updatePage();
+
+					SetupFinishedPage setupFinishedPage = (SetupFinishedPage)this.currentPage;
+					setupFinishedPage.IsRestartNeeded = false;
+				}
+				else
+				{
+					pageIdx = pages.Length - 1;
+					bannerBox.Visible = false;
+					await updatePage();
+
+					setNeedsRestartPage();
+					return;
+				}
+			}
+
+			if (nextBtn.Text == "Finish")
+			{
+				this.Close();
+			}
+
+			if (currentPage.Tag == (object)"ChooseOptions")
+			{
+				ChooseOptions pg = (ChooseOptions)currentPage;
+				Installer.InstallationOptions = pg.GenerateOptions();
+			}
+
+			if (currentPage.Tag == (object)"ChooseInstallFolder")
+			{
+				ChooseInstallFolder chooseDirPg = (ChooseInstallFolder)this.currentPage;
+
+				if (chooseDirPg.destinationBox.Text == @"C:\")
+				{
+					DarkModeMessageBox.Show(this, "Can't install to the root of C drive! (C:\\)\nPlease select a proper installation directory", "WSA Setup", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+					return;
+				}
+
+				//if (pg.SkipToUninstallerTesting == true)
+				//{
+				//	pageIdx = 3;
+				//	await updatePage();
+				//	return;
+				//}
+			}
+			if (this.pageIdx + 1 < pages.Length)
+			{
+				this.pageIdx += 1;
+			}
+
+			await updatePage();
+		}
+
+		private async void backBtn_Click(object sender, EventArgs e)
+		{
+			if (this.backBtn.Text == "Reboot Now")
+			{
+				Process.Start("shutdown", "/r /t 0");
+			}
+			else
+			{
+				if (this.pageIdx - 1 >= 0)
+				{
+					this.pageIdx -= 1;
+				}
+
+				await updatePage();
+			}
+		}
+
 		private async Task updatePage()
 		{
+			if (this.currentPage != null)
+			{
+
+			}
+
 			if (this.currentPage != null)
 			{
 				this.Controls.Remove(this.currentPage);
@@ -312,10 +395,12 @@ namespace WSA_Installer
 						string assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 						InstallerState state = JsonConvert.DeserializeObject<InstallerState>(File.ReadAllText(assemblyDirectory + @"\InstallerState.json"));
 
-						Installer.PostRestartInstall(state);
+						await Installer.PostRestartInstall(state);
 
 						File.Delete(assemblyDirectory + @"\InstallerState.json");
-						Directory.Delete(assemblyDirectory + @"\Temp", true);
+
+						// This deletes the cached files!!!
+						//Directory.Delete(assemblyDirectory + @"\Temp", true);
 
 						break;
 					}
@@ -479,88 +564,6 @@ namespace WSA_Installer
 					CreateNoWindow = true,
 					FileName = "cmd.exe"
 				});
-			}
-		}
-
-		private void selfDelete()
-		{
-			Process silentSelfDelete = new Process();
-			silentSelfDelete.StartInfo.FileName = "cmd.exe";
-			silentSelfDelete.StartInfo.Arguments = "/C choice /C Y /N /D Y /T 1 & Del " + Application.ExecutablePath;
-			silentSelfDelete.StartInfo.CreateNoWindow = true;
-			silentSelfDelete.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-			silentSelfDelete.Start();
-			Application.Exit();
-		}
-
-		private async void nextBtn_Click(object sender, EventArgs e)
-		{
-			if (currentPage.Tag == (object)"InstallerPage")
-			{
-				if (InstallFinishingAfterReboot)
-				{
-					pageIdx = pages.Length - 1;
-					bannerBox.Visible = false;
-					await updatePage();
-
-					SetupFinishedPage setupFinishedPage = (SetupFinishedPage)this.currentPage;
-					setupFinishedPage.IsRestartNeeded = false;
-				}
-				else
-				{
-					pageIdx = pages.Length - 1;
-					bannerBox.Visible = false;
-					await updatePage();
-
-					setNeedsRestartPage();
-					return;
-				}
-
-			}
-
-			if (nextBtn.Text == "Finish")
-			{
-				this.Close();
-			}
-
-			if (currentPage.Tag == (object)"ChooseOptions")
-			{
-				ChooseOptions pg = (ChooseOptions)currentPage;
-				Installer.InstallationOptions = pg.GenerateOptions();
-			}
-
-			if (currentPage.Tag == (object)"ChooseInstallFolder")
-			{
-				ChooseInstallFolder pg = (ChooseInstallFolder)currentPage;
-				if (pg.SkipToUninstallerTesting == true)
-				{
-					pageIdx = 3;
-					await updatePage();
-					return;
-				}
-			}
-			if (this.pageIdx + 1 < pages.Length)
-			{
-				this.pageIdx += 1;
-			}
-
-			await updatePage();
-		}
-
-		private async void backBtn_Click(object sender, EventArgs e)
-		{
-			if (this.backBtn.Text == "Reboot Now")
-			{
-				Process.Start("shutdown", "/r /t 0");
-			}
-			else
-			{
-				if (this.pageIdx - 1 >= 0)
-				{
-					this.pageIdx -= 1;
-				}
-
-				await updatePage();
 			}
 		}
 

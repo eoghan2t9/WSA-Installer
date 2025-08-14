@@ -159,7 +159,6 @@
 			this.Controls.Add(this.SpaceAvaLbl);
 			this.Controls.Add(this.spaceReqLbl);
 			this.Controls.Add(this.groupBox2);
-			this.ForeColor = System.Drawing.Color.Silver;
 			this.Location = new System.Drawing.Point(0, 0);
 			this.Name = "ChooseInstallFolder";
 			this.groupBox2.ResumeLayout(false);
@@ -176,9 +175,9 @@
         private System.Windows.Forms.Label spaceReqLbl;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button browseBtn;
-        private System.Windows.Forms.TextBox destinationBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label progLbl;
         private System.Windows.Forms.CheckBox uninstallerTesterBox;
-    }
+		public System.Windows.Forms.TextBox destinationBox;
+	}
 }
