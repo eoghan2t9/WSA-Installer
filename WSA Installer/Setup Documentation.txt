@@ -1,0 +1,14 @@
+1. [UI & LOGIC DONE] Pick installation directory
+2. [UI & LOGIC DONE] Pick optional features to download 
+3. [UI & LOGIC DONE] Download packages and stage in temp directory (need to extract using SevenSharp during install process).
+	[TODO] Need to allow user to pick their own User Data Package, or not install one at all.
+
+4. [UI & LOGIC DONE] Enable Hyper-V (All), Virtual Machine Platform, and Windows Hypervisor Platform features (will prompt the user for a reboot at the end of the setup)
+5. [UI & LOGIC DONE] Extract WSA to install dir, and install its dependancies, then delete the archive for the WSA package out of the temp dir. 
+6. [UI & LOGIC DONE] [MAY NOT NEED] Extract Integrations package vhdx files over the stock WSA vhdx files in the WSA install dir.
+	This might not be needed, if we can put those vhdx files in the stock WSA and distribute that as the WSA install package, then this step is not needed.
+	Just depends if we can get a successful startup from WSA when using the integration on first run and not stock.
+
+7. [UI & LOGIC DONE] Extract user data package to user data dir.Must use either the default one that was downloaded because the user picked that one, a customly selected 7z file that contains their own User Data Package, or not install one at all. 
+8. [UI & LOGIC DONE] Install additional tools such as the Aow Tools app if selected at step 2.
+9. [UI & LOGIC DONE] Finalize installation with creating the uninstaller and prompting for a reboot from the user. Do we really need an uninstaller? I think not.
