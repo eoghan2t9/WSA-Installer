@@ -10,7 +10,7 @@
       "https://github.com/mastercodeon31415/WSA-Installer/raw/refs/heads/main/Installer-Data/WSA_Gapps.zip.007",
       "https://github.com/mastercodeon31415/WSA-Installer/raw/refs/heads/main/Installer-Data/WSA_Gapps.zip.008"
     ],
-    "PackageName": "Stock WSA",
+    "PackageName": "Stock WSA + GApps",
     "FilePaths": []
   },
   "UserDataPackages": [
