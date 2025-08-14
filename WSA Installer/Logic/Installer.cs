@@ -201,7 +201,6 @@ namespace WSA_Installer.Logic
 							appDisplayName = packageToAppNames[appPackageName];
 						}
 
-
 						// The full path where the shortcut (.lnk file) will be created.
 						// Environment.GetFolderPath(Environment.SpecialFolder.Desktop) gets the current user's desktop path.
 						string shortcutLocation = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), appPackageName);
