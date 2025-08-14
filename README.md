@@ -11,3 +11,7 @@ You need to get the ```WSA_Gapps.zip.00X``` and the ```WSA UserData [RVX + YT + 
 Use a download manager like Xtreme Download Manager to get better download speeds.
 Once all the zip parts have been downloaded, put all the files in a folder called Temp and put that folder in the same directory that the WSA Setup.exe file is located. 
 Once it detects that the temp folder is present, and all the needed files are in it, it will skip downloading of the files and go straight to installing. 
+
+## Proof it works on Latest Canary Builds (27919)
+
+<img width="1791" height="787" alt="Screenshot 2025-08-13 225749" src="https://github.com/user-attachments/assets/3dd780e1-4672-4594-b427-62320af61175" />
