@@ -27,3 +27,9 @@ The installer will add shortcuts to a folder on your desktop called WSA Apps to 
 ## Proof it works on Latest Canary Builds (27919)
 
 <img width="1791" height="787" alt="Screenshot 2025-08-13 225749" src="https://github.com/user-attachments/assets/3dd780e1-4672-4594-b427-62320af61175" />
+
+## Donation links
+
+Anything is super helpful! Anything donated helps me keep developing this program and others!
+- https://www.paypal.com/paypalme/lifeline42
+- https://cash.app/$codoen314
