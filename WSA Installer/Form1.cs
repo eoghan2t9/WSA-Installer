@@ -106,7 +106,7 @@ namespace WSA_Installer
 			using (HttpClient client = new HttpClient())
 			{
 				// Blocking call: .Result waits synchronously for the task to complete
-				string content = client.GetStringAsync("https://github.com/mastercodeon31415/WSA-Installer/raw/refs/heads/main/Installer-Data/Packages.json").Result;
+				string content = client.GetStringAsync("https://github.com/mastercodeon31415/WSA-Installer-Data/raw/refs/heads/main/Packages.json").Result;
 				wsaPackages = JsonConvert.DeserializeObject<WSAPackages>(content);
 			}
 
