@@ -1,3 +1,9 @@
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue?logo=powershell)
+![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.7.2-blueviolet?logo=.net)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mastercodeon31415/WSA-Installer/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/mastercodeon31415/WSA-Installer)](https://github.com/mastercodeon31415/WSA-Installer/issues)
+[![GitHub stars](https://img.shields.io/github/stars/mastercodeon31415/WSA-Installer)](https://github.com/mastercodeon31415/WSA-Installer/stargazers)
+
 # WSA Installer
 
 <img width="568" height="421" alt="Screenshot 2025-08-13 200023" src="https://github.com/user-attachments/assets/6742ded5-3e47-4e4d-a6bb-cb6c2b172cd3" />
@@ -28,8 +34,16 @@ The installer will add shortcuts to a folder on your desktop called WSA Apps to 
 
 <img width="1791" height="787" alt="Screenshot 2025-08-13 225749" src="https://github.com/user-attachments/assets/3dd780e1-4672-4594-b427-62320af61175" />
 
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or encounter any issues, please feel free to open an issue or submit a pull request.
+
 ## Donation links
 
 Anything is super helpful! Anything donated helps me keep developing this program and others!
 - https://www.paypal.com/paypalme/lifeline42
 - https://cash.app/$codoen314
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/mastercodeon31415/WSA-Installer/blob/main/LICENSE) file for details. 
